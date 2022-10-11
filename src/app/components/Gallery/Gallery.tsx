@@ -1,73 +1,26 @@
 import Overlay from "../Overlay/Overlay";
-
-const Gallery = () => {
+interface Props {
+  images: any;
+}
+const Gallery: React.FC<Props> = (props) => {
+  const { images } = props;
   return (
     <>
       <div className="gallery">
-        <div className="gallery__overlay">
-          <img
-            className="gallery__image"
-            src={require("../../assets/images/testImage.jpg")}
-            alt="test"
-          />
-          <Overlay />
-        </div>
-        <div className="gallery__overlay gallery--row-span--2">
-          <img
-            className="gallery__image "
-            src={require("../../assets/images/testImage.jpg")}
-            alt="test"
-          />
-          <Overlay />
-        </div>
-        <div className="gallery__overlay gallery--col-span--2 gallery--row-span--2">
-          <img
-            className="gallery__image"
-            src={require("../../assets/images/testImage.jpg")}
-            alt="test"
-          />
-          <Overlay />
-        </div>
-        <div className="gallery__overlay">
-          <img
-            className="gallery__image"
-            src={require("../../assets/images/testImage.jpg")}
-            alt="test"
-          />
-          <Overlay />
-        </div>
-        <div className="gallery__overlay">
-          <img
-            className="gallery__image"
-            src={require("../../assets/images/testImage.jpg")}
-            alt="test"
-          />
-          <Overlay />
-        </div>
-        <div className="gallery__overlay">
-          <img
-            className="gallery__image"
-            src={require("../../assets/images/testImage.jpg")}
-            alt="test"
-          />
-          <Overlay />
-        </div>
-        <div className="gallery__overlay">
-          <img
-            className="gallery__image"
-            src={require("../../assets/images/testImage.jpg")}
-            alt="test"
-          />
-          <Overlay />
-        </div>
-        <div className="gallery__overlay">
-          <img
-            className="gallery__image"
-            src={require("../../assets/images/testImage.jpg")}
-            alt="test"
-          />
-          <Overlay />
-        </div>
+        {images.map((image: any) => (
+          <div
+            className={`gallery__overlay ${
+              image.webformatWidth >= 640 && "gallery--col-span--2 "
+            } ${image.webformatHeight >= 400 && "gallery--row-span--2"}`}
+          >
+            <img
+              className="gallery__image"
+              src={`${image.largeImageURL}`}
+              alt="test"
+            />
+            <Overlay />
+          </div>
+        ))}
       </div>
     </>
   );
