@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import localText from "../../pages/LikedImages/LikedImages.static";
 
 interface Props {
@@ -22,7 +23,9 @@ const Nav: React.FC<Props> = (props) => {
         </div>
 
         <div className="field">
-          <i className="icon icon--lg icon--heart"></i>
+          <NavLink to={"/liked-images"}>
+            <i className={"icon icon--lg icon--heart"}></i>
+          </NavLink>
           <div className="notification">3</div>
         </div>
       </>
@@ -33,11 +36,13 @@ const Nav: React.FC<Props> = (props) => {
     return (
       <>
         <div className="title--primary">{localText.titlePrimary}</div>
-        <i className="icon icon--lg icon--home"></i>
+        <NavLink to={"/"}>
+          <i className="icon icon--lg icon--home"></i>
+        </NavLink>
       </>
     );
   };
-
+  console.log(isHome);
   return (
     <div className="flex flex--jc--sb">
       {isHome ? homePageNav() : likedImagesNav()}

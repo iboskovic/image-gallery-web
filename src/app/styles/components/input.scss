@@ -9,6 +9,12 @@
 
   &--primary {
     border: 1px solid $color-text-primary;
+    font-size: 16px;
+    font-weight: bold;
+
+    &::placeholder {
+      font-weight: normal;
+    }
 
     &:focus {
       outline: none;
@@ -17,7 +23,7 @@
 
   // sizes
   &--base {
-    padding: 12px 12px 12px 48px;
+    padding: 12px 12px 12px 68px;
   }
 
   // icon
