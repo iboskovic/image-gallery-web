@@ -1,0 +1,30 @@
+/*
+    components: input.scss
+*/
+
+.input {
+  width: 100%;
+  border: none;
+  border-radius: $border-rounded;
+
+  &--primary {
+    border: 1px solid $color-text-primary;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  // sizes
+  &--base {
+    padding: 12px 12px 12px 48px;
+  }
+
+  // icon
+  &--icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
