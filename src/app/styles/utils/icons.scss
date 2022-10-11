@@ -1,0 +1,68 @@
+/*
+    components: icons
+*/
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  mask-repeat: no-repeat;
+  mask-position: 50%;
+  background-color: $color-text-primary;
+
+  //icon sizes
+  &--ty {
+    width: calc(#{$unit} * 3);
+    height: calc(#{$unit} * 3);
+  }
+  &--xs {
+    width: calc(#{$unit} * 4);
+    height: calc(#{$unit} * 4);
+  }
+  &--sm {
+    width: calc(#{$unit} * 5);
+    height: calc(#{$unit} * 5);
+  }
+  &--base {
+    width: calc(#{$unit} * 6);
+    height: calc(#{$unit} * 6);
+  }
+  &--md {
+    width: calc(#{$unit} * 8);
+    height: calc(#{$unit} * 8);
+  }
+  &--lg {
+    width: calc(#{$unit} * 10);
+    height: calc(#{$unit} * 10);
+  }
+
+  //icons
+  &--expand {
+    mask-image: url("./../../assets/icons/expand.svg");
+  }
+
+  &--heart-transparent {
+    mask-image: url("./../../assets/icons/heart-transparent.svg");
+  }
+
+  &--heart {
+    mask-image: url("./../../assets/icons/heart.svg");
+  }
+
+  &--home {
+    mask-image: url("./../../assets/icons/home.svg");
+  }
+
+  &--search {
+    mask-image: url("./../../assets/icons/search.svg");
+  }
+
+  &--close {
+    mask-image: url("./../../assets/icons/close.svg");
+  }
+
+  //color modifiers
+  &--primary {
+    background-color: $color-text-primary;
+  }
+}
