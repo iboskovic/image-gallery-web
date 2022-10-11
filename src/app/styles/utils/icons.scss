@@ -36,6 +36,15 @@
     height: calc(#{$unit} * 10);
   }
 
+  &--xl {
+    width: calc(#{$unit} * 12);
+    height: calc(#{$unit} * 12);
+  }
+  &--xxl {
+    width: calc(#{$unit} * 14);
+    height: calc(#{$unit} * 14);
+  }
+
   //icons
   &--expand {
     mask-image: url("./../../assets/icons/expand.svg");
