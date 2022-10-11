@@ -1,0 +1,18 @@
+/*
+    utils: width.scss
+*/
+
+.w {
+  &--100 {
+    width: 100%;
+
+    &--px {
+      width: 100px;
+    }
+  }
+
+  // above 100% is just a number for px
+  &--500 {
+    width: 500px;
+  }
+}

@@ -1,0 +1,39 @@
+/*
+    components: gallery.scss
+*/
+
+.gallery {
+  margin-top: 100px;
+  display: grid;
+  gap: 40px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 300px;
+
+  &__image {
+    background-color: coral;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    cursor: pointer;
+
+    &--col-span {
+      &--2 {
+        grid-column: span 2;
+      }
+
+      &--3 {
+        grid-column: span 3;
+      }
+    }
+
+    &--row-span {
+      &--2 {
+        grid-row: span 2;
+      }
+      &--3 {
+        grid-row: span 3;
+      }
+    }
+  }
+}
