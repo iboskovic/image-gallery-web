@@ -24,8 +24,8 @@ export function RenderRoutes(routesObj: any) {
   const { routes } = routesObj;
   return (
     <Routes>
-      {routes.map((route: any) => {
-        return <Route {...route} />;
+      {routes.map((route: any, index: number) => {
+        return <Route key={index} {...route} />;
       })}
     </Routes>
   );

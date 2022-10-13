@@ -1,21 +1,25 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
 import { ImageService } from "../services/imageService";
+import { Image } from "../types/Image";
+import { useState } from "react";
+import { useAppSelector } from "../utils/reduxHooks";
+import { RootState } from "../store";
 
 const useFetch = () => {
-  const [images, setImages] = useState([]);
   const imageService = new ImageService();
+  const [images, setImages] = useState<Image[]>();
+  const searchTerm = useAppSelector(
+    (state: RootState) => state.searchTerm.searchTerm
+  );
 
   const fetch = async () => {
-    const res = await imageService.getImages("");
-    setImages(res.hits);
+    try {
+      const res = await imageService.getImages(searchTerm);
+      setImages(res.hits);
+    } catch (error) {
+      console.error(error);
+    }
   };
-
-  useEffect(() => {
-    fetch();
-  }, []);
-
-  return { images };
+  return { fetch, images, searchTerm };
 };
 
 export default useFetch;

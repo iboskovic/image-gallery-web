@@ -6,11 +6,11 @@
   &--closed {
     display: none;
   }
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.5);
 
@@ -35,11 +35,13 @@
     text-align: center;
     margin-top: 150px;
     margin-bottom: 150px;
+
     & img {
+      border: 1px solid $black;
+      object-fit: cover;
       width: 600px;
       height: 300px;
       border-radius: 12px;
-      border: 1px solid $black;
     }
 
     &--center {
