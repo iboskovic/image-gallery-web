@@ -1,18 +1,12 @@
 import Nav from "../../components/Nav/Nav";
-import { RootState } from "../../store";
-import { useAppSelector } from "../../utils/reduxHooks";
 import { Image } from "../../types/Image";
 import Modal from "../../components/Modal/Modal";
-import EmptyState from "../../components/EmptyState/EmptyState";
+import EmptyState from "../../components/EmptyState";
 import useLikedImages from "./LikedImages.logic";
 import SingleImage from "../../components/SingleImage";
 
 const LikedImages = () => {
-  const { likedImage, setLikedImage } = useLikedImages();
-
-  const likedImages = useAppSelector(
-    (state: RootState) => state.likedImages.likedImages
-  );
+  const { likedImage, setLikedImage, likedImages } = useLikedImages();
 
   return (
     <div className="main">
@@ -21,6 +15,7 @@ const LikedImages = () => {
         <div className="gallery">
           {likedImages.map((image: Image) => (
             <SingleImage
+              key={image.id}
               image={image}
               setLikedImage={() => setLikedImage(image)}
             />

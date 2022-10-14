@@ -3,14 +3,10 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface State {
   likedImages: Image[];
-  likedImagesCount: number;
-  isLiked: boolean;
 }
 
 const initialState: State = {
   likedImages: [],
-  likedImagesCount: 0,
-  isLiked: false,
 };
 
 const likedImagesSlice = createSlice({

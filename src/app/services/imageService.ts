@@ -1,5 +1,6 @@
 import { ResData } from "../types/ResData";
 import { BaseService } from "./baseService";
+
 const { REACT_APP_KEY } = process.env;
 
 export class ImageService extends BaseService {
