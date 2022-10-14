@@ -1,7 +1,5 @@
-import { removeLikedImage, setImages } from "../../slices/likedImagesSlice";
-import { RootState } from "../../store";
 import { Image } from "../../types/Image";
-import { useAppDispatch, useAppSelector } from "../../utils/reduxHooks";
+import useOverlay from "./Overlay.logic";
 
 interface Props {
   onClick: () => void;
@@ -9,18 +7,8 @@ interface Props {
 }
 const Overlay: React.FC<Props> = (props) => {
   const { onClick, image } = props;
-  const dispatch = useAppDispatch();
-  const likedImages = useAppSelector(
-    (state: RootState) => state.likedImages.likedImages
-  );
-  const isLiked = likedImages.find((img: Image) => img.id === image?.id);
-  const handleLike = (image: Image) => {
-    if (isLiked) {
-      dispatch(removeLikedImage(image));
-    } else {
-      dispatch(setImages(image));
-    }
-  };
+  const { handleLike, isLiked } = useOverlay(image);
+
   return (
     <div className="overlay">
       <div className="overlay__header">

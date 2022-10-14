@@ -1,21 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { RootState } from "../../store";
-import { useAppDispatch, useAppSelector } from "../../utils/reduxHooks";
-import { setSearchTerm } from "../../slices/searchSlice";
+import useNav from "./Nav.logic";
 
 interface Props {
   isHome: boolean;
 }
 const Nav: React.FC<Props> = (props) => {
   const { isHome } = props;
-  const likedImages = useAppSelector(
-    (state: RootState) => state.likedImages.likedImages
-  );
-  const dispatch = useAppDispatch();
-
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setSearchTerm(e.target.value));
-  };
+  const { handleSearch, likedImages } = useNav();
 
   const homePageNav = () => {
     return (

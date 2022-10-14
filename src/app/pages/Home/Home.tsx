@@ -1,27 +1,19 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect } from "react";
-import EmptyState from "../../components/EmptyState/EmptyState";
+import EmptyState from "../../components/EmptyState";
+import Loader from "../../components/Loader";
 import Modal from "../../components/Modal/Modal";
 import Nav from "../../components/Nav/Nav";
 import SingleImage from "../../components/SingleImage";
-import useFetch from "../../hooks/useFetch";
 import { Image } from "../../types/Image";
 import useHome from "./Home.logic";
 
 const Home = () => {
-  const { likedImage, setLikedImage } = useHome();
-
-  const { fetch, images, searchTerm, isLoading } = useFetch();
-
-  useEffect(() => {
-    fetch();
-  }, [searchTerm]);
+  const { likedImage, setLikedImage, images, isLoading } = useHome();
 
   return (
     <div className="main">
       <Nav isHome />
       {isLoading ? (
-        <>Loading</>
+        <Loader />
       ) : (
         <>
           {images && images.length > 0 ? (
@@ -29,6 +21,7 @@ const Home = () => {
               {images.map((image: Image) => (
                 <>
                   <SingleImage
+                    key={image.id}
                     image={image}
                     setLikedImage={() => setLikedImage(image)}
                   />

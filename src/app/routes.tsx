@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import LikedImages from "./pages/LikedImages/LikedImages";
+import { IRoute, RouteObj } from "./types/IRoute";
 
 export enum PATHS {
   HOME = "/",
@@ -20,11 +21,11 @@ const ROUTES = [
 
 export default ROUTES;
 
-export function RenderRoutes(routesObj: any) {
+export function RenderRoutes(routesObj: RouteObj) {
   const { routes } = routesObj;
   return (
     <Routes>
-      {routes.map((route: any, index: number) => {
+      {routes.map((route: IRoute, index: number) => {
         return <Route key={index} {...route} />;
       })}
     </Routes>
