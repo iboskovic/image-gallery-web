@@ -7,19 +7,24 @@ import { RootState } from "../store";
 const useFetch = () => {
   const imageService = new ImageService();
   const [images, setImages] = useState<Image[]>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const searchTerm = useAppSelector(
     (state: RootState) => state.searchTerm.searchTerm
   );
 
   const fetch = async () => {
     try {
+      setIsLoading(true);
       const res = await imageService.getImages(searchTerm);
       setImages(res.hits);
+      setIsLoading(false);
     } catch (error) {
+      setIsLoading(false);
       console.error(error);
     }
   };
-  return { fetch, images, searchTerm };
+  return { fetch, images, searchTerm, isLoading };
 };
 
 export default useFetch;
