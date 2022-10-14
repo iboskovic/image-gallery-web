@@ -35,7 +35,7 @@ const Modal: React.FC<Props> = (props) => {
           <i className="icon icon--base icon--close" onClick={handleClose}></i>
         </div>
         <div className="modal__body">
-          <img className="img" src={image.largeImageURL} alt="test" />
+          <img className="img" src={image.largeImageURL} alt="img" />
           <i
             className={`icon icon--xxl icon--heart-${
               isLiked ? "red icon--red" : "transparent"
